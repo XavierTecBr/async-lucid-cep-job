@@ -1,10 +1,15 @@
 # async-lucid-cep-job
+
+THIS REPOSITORY IS ONLY TO EXPLORE A FRIEND DOUBT - IT WILL BE REMOVED
+
 API  that use lucid architecture to search a data in another API using a async job
 
-The async is doesn't work in this way: Controller -> Feature -> queueJob;
+The async doesn't work in this way: CepController -> CepFeature -> CepJob;
 
-- try to use this URI -> localhost:8000/api/cep/01001000
+- Use a REst client and try to get this URI -> localhost:8000/api/cep/01001000 and see the log in storage folder
 
-- the queueJob only worked for me, using the redis and predis instaled on project, before this no one queueJob were really queue.
+-.env the field QUEUE_CONNECTION=redis to use the redis to save the queue workers
 
-- If you is calling queujob using the construct... in this case the construct doesn't call the handle, so you have to call it
+- the queueJob need the artisan and queue:work to work fine
+
+- remember any alteration in the code you need to restart the queue and put it on work again
